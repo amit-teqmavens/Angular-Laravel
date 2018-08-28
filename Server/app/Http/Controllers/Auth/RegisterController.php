@@ -57,8 +57,14 @@ class RegisterController extends Controller
     }
 
 
-
-     public function register(Request $request){
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    
+    public function register(Request $request){
         $validator = $this->validator($request->all());
         if ($validator->fails()){
             return response($validator->messages());

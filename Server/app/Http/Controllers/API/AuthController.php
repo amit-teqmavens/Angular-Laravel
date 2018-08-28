@@ -12,11 +12,18 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class AuthController extends Controller
-{   use RegistersUsers;
-    public function login(Request $request)
-    {	
+{   
+    use RegistersUsers;
 
 
+
+
+    
+     /**
+     * This function handles authenticating users for the application andredirecting them to your home screen.
+     * @param  email, password.
+     */
+    public function login(Request $request){
         $validator = Validator::make($request->all(), [
             'email' => 'required|string|email|max:255',
             'password'=> 'required'
